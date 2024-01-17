@@ -1,0 +1,18 @@
+<div id="content">
+    <div class="container">
+      <div class="row">
+    
+            <div *ngFor="let product of products"class="product1 col-6 col-sm-4 col-md-4 col-lg-3">
+                <img style="width: 100px;" src="{{product.thumbnail}}"/>                
+                <p class="fw-bold"><a href = "/product-detail/{{product.id}}">{{product.title}}</a></p>
+                <span class="price">{{product.price}}</span> <br>
+                <button class="sales" *ngIf="product.sales; else notsale">Mua với mã giảm giá</button>
+                <ng-template #notsale>
+                    <button class="text-white bg-danger rounded-pill border border-danger">Mua ngay</button>
+                </ng-template>
+            </div>
+
+    </div>      
+    </div>
+</div>
+

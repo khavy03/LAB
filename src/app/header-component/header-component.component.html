@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="header-component.component.css">
+<div class="container bg-body-secondary"> 
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid ">
+      <a class="navbar-brand " href="#">DANDY</a>
+      
+      <div class="text-black collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-2 text-black">
+          @for (pmenu of menus; track pmenu.id){
+          <li *ngIf="pmenu.parent==0" class="nav-item">
+            <a class="nav-link text-black" aria-current="page" href="#">{{pmenu.name}}</a>
+            <ul *ngIf="checkChildrent(pmenu.id)" class="dropdown-menu">
+                @for (smenu of menus; track smenu.id){
+                  <li *ngIf="smenu.parent==pmenu.id" class="nav-item">
+                    <a class="nav-link text-black" aria-current="page" href="#">{{smenu.name}}</a>
+                  </li>
+                }
+            </ul>
+          </li>
+          }
+        </ul>
+       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-but">
+          <a class="login-button" href="#">Login</a>
+        </li>
+       </ul>
+      </div>
+    </div>
+  </nav>
+</div>
